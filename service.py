@@ -7,7 +7,9 @@ from sesamutils import sesam_logger
 
 app = Flask(__name__)
 
-## Helpers
+###
+# Helpers
+###
 logger = sesam_logger("Steve the logger", app=app)
 
 @app.route('/')
@@ -18,8 +20,9 @@ def index():
     }
     return jsonify(output)
 
-
-## Do the magic.
+###
+# Do the magic.
+###
 @app.route('/create_node_template', methods=['GET','POST'])
 def create_dataflow():
     if request.args.get('config_group'):
@@ -43,8 +46,6 @@ def create_dataflow():
         os.mkdir(f"{path}/node/pipes")
     except Exception:
         logger.error("folders already created")
-
-    print(config_group)
     
     for type in [system_type]:
         json_string = system_configs(type, config_group)
