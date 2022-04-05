@@ -89,7 +89,7 @@ def enrich_pipe(pipeNameAndDatatype, config_group):
 def global_pipe(pipeNameAndDatatype, config_group):
   if config_group != "Default":
     config = {
-      "_id": f"{config_group}-template",
+      "_id": f"{config_group}-temporary",
       "type": "pipe",
       "source": {
         "type": "merge",
@@ -107,7 +107,7 @@ def global_pipe(pipeNameAndDatatype, config_group):
     }
   else:
     config = {
-      "_id": "global-template",
+      "_id": "global-temporary",
       "type": "pipe",
       "source": {
         "type": "merge",
